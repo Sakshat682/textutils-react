@@ -34,7 +34,7 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <form className="d-flex mx-5">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -44,7 +44,7 @@ export default function Navbar(props) {
             <button className="btn btn-primary" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
           <div
             className={`form-check form-switch mx-1 text-${
               props.mode === "light" ? "dark" : "light"

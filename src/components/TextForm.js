@@ -48,7 +48,7 @@ export default function TextForm(props) {
   // setText("new text"); // Correct way to change the state
   return (
     <div>
-      <h1>{props.heading}</h1>
+      <h1 className="mb-2">{props.heading}</h1>
       <div className="mb-3">
         <textarea
           className="form-control"
@@ -62,22 +62,42 @@ export default function TextForm(props) {
           }}
         ></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handleUpClick}>
+      <button
+        disabled={text.length === 0}
+        className="btn btn-primary mx-1 my-1"
+        onClick={handleUpClick}
+      >
         Convert to Uppercase
       </button>
-      <button className="btn btn-primary mx-3" onClick={handleLoClick}>
+      <button
+        disabled={text.length === 0}
+        className="btn btn-primary mx-1 my-1"
+        onClick={handleLoClick}
+      >
         Convert to Lowercase
       </button>
-      <button className="btn btn-primary" onClick={handleClearClick}>
+      <button
+        disabled={text.length === 0}
+        className="btn btn-primary mx-1 my-1"
+        onClick={handleClearClick}
+      >
         Clear text
       </button>
-      <button className="btn btn-primary mx-3" onClick={handleCopyClick}>
+      <button
+        disabled={text.length === 0}
+        className="btn btn-primary mx-1 my-1"
+        onClick={handleCopyClick}
+      >
         {copyBtnText}
       </button>
-      <button className="btn btn-primary" onClick={handleExtraSpaces}>
+      <button
+        disabled={text.length === 0}
+        className="btn btn-primary mx-1 my-1"
+        onClick={handleExtraSpaces}
+      >
         Clear Extra Spaces
       </button>
-      <div className="container my3">
+      <div className="container my-3">
         <h1>Your text summary</h1>
         <p>
           {text.split(" ").filter((t) => t !== "").length} words and{" "}
@@ -87,11 +107,7 @@ export default function TextForm(props) {
           {0.008 * text.split(" ").filter((t) => t !== "").length} Minutes read.
         </p>
         <h2>Preview</h2>
-        <p>
-          {text.length > 0
-            ? text
-            : "Enter Something in textArea above to preview here"}
-        </p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
       </div>
     </div>
   );
