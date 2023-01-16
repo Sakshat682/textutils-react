@@ -36,7 +36,7 @@ export default function TextForm(props) {
         setCopyBtnText("Copy");
       }, 1000);
     }
-    props.showAlert("Text Copied", "success");
+    props.showAlert("Text Copied to Clipboard", "success");
   };
 
   const handleExtraSpaces = () => {
@@ -100,11 +100,12 @@ export default function TextForm(props) {
       <div className="container my-3">
         <h1>Your text summary</h1>
         <p>
-          {text.split(" ").filter((t) => t !== "").length} words and{" "}
+          {text.split(/\s+/).filter((t) => t !== "").length} words and{" "}
           {text.length} characters.
         </p>
         <p>
-          {0.008 * text.split(" ").filter((t) => t !== "").length} Minutes read.
+          {0.008 * text.split(/\s+/).filter((t) => t !== "").length} Minutes
+          read.
         </p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview"}</p>
